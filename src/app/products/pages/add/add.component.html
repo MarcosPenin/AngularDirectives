@@ -1,0 +1,53 @@
+<h1 class="mt-5">Add product</h1>
+<hr>
+
+<form [formGroup]="myForm">
+
+    <div class="row g-3 align-items-center mb-3">
+
+        <div class="col-auto">
+            <label class="col-form-label">Name:</label>
+        </div>
+
+        <div class="col-auto">
+            <input class="form-control"
+                   formControlName="name">
+        </div>
+
+        <div class="col-auto">
+            <span errMsg
+                  [message]="text1"
+                  [color]="color"
+                  [valid]="!hasError('name')">
+            </span>
+        </div>
+
+    </div>
+
+
+    <div class="row mt-3">
+        <div class="col">
+            <button class="btn btn-primary"
+                    (click)="changeName()">
+                Save
+            </button>
+
+            &nbsp;
+            <button class="btn btn-primary"
+                    (click)="changeColor()">
+                Change Color
+            </button>
+        </div>
+    </div>
+
+</form>
+
+
+<div class="row mt-5" 
+    *customIf="myForm.valid">
+    <div class="col">
+        <div class="alert alert-primary">
+            Everything OK!
+        </div>
+    </div>
+</div>
